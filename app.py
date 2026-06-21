@@ -24,7 +24,7 @@ HTML = """<!DOCTYPE html>
             text-align: center;
         }
         h1 { color: #333; font-size: 28px; margin-bottom: 8px; }
-        .version1 { color: #764ba2; font-size: 14px; font-weight: 600; margin-bottom: 24px; }
+        .version1 { color: #764ba2; font-size: 14px; font-weight: 600; margin-bottom: 28px; }
  	.version2 { color: #764ba2; font-size: 14px; font-weight: 600; margin-bottom: 24px; }
         .status { display: inline-block; background: #e8f5e9; color: #2e7d32;
                   padding: 6px 16px; border-radius: 20px; font-size: 14px; margin-bottom: 24px; }
@@ -39,7 +39,7 @@ HTML = """<!DOCTYPE html>
 <body>
     <div class="card">
         <h1>🚀 CI/CD 部署成功！</h1>
-	<p class="version1">Flask App v1.0 | Python {{ python_version }}</p>
+	<p class="version1">Flask App v1.0}</p>
         <p class="version2"> Python {{ python_version }}</p>
         <div class="status">✅ 服务运行正常</div>
         <div class="info">
