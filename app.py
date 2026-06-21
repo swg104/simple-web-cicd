@@ -24,28 +24,35 @@ HTML = """<!DOCTYPE html>
             text-align: center;
         }
         h1 { color: #333; font-size: 28px; margin-bottom: 8px; }
-        .version { color: #764ba2; font-size: 14px; font-weight: 600; margin-bottom: 24px; }
+        .version1 { color: #764ba2; font-size: 14px; font-weight: 600; margin-bottom: 24px; }
+ 	.version2 { color: #764ba2; font-size: 14px; font-weight: 600; margin-bottom: 24px; }
         .status { display: inline-block; background: #e8f5e9; color: #2e7d32;
                   padding: 6px 16px; border-radius: 20px; font-size: 14px; margin-bottom: 24px; }
         .info { background: #f5f5f5; border-radius: 8px; padding: 16px;
                 text-align: left; font-size: 13px; color: #666; line-height: 1.8; }
         .info span { color: #333; font-weight: 600; }
+        .student-info { background: #e3f2fd; border-radius: 8px; padding: 12px; margin-top: 16px;
+                        text-align: center; font-size: 14px; color: #1565c0; }
+        .student-info span { color: #0d47a1; font-weight: 700; }
     </style>
 </head>
 <body>
     <div class="card">
         <h1>🚀 CI/CD 部署成功！</h1>
-        <p class="version">Flask App v1.0 | Python {{ python_version }}</p>
+	<p class="version1">Flask App v1.0 | Python {{ python_version }}</p>
+        <p class="version2"> Python {{ python_version }}</p>
         <div class="status">✅ 服务运行正常</div>
         <div class="info">
             <p><span>容器 ID：</span>{{ hostname }}</p>
             <p><span>部署时间：</span>{{ deploy_time }}</p>
             <p><span>环境：</span>{{ environment }}</p>
         </div>
+        <div class="student-info">
+            <p>👤 <span>学生姓名：宋韦谷</span> | <span>学号：2440666104</span></p>
+        </div>
     </div>
 </body>
 </html>"""
-
 
 @app.route("/")
 def index():
@@ -58,11 +65,9 @@ def index():
         environment="Production" if app.config.get("ENV") == "production" else "Development",
     )
 
-
 @app.route("/health")
 def health():
     return {"status": "healthy"}, 200
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=True)
